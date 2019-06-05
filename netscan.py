@@ -8,9 +8,9 @@ def scan(ip):
     arp_req_broadcast = broadcast / arp_req
     answered_list = scapy.srp(arp_req_broadcast, timeout=1, verbose=False)[0]
     
+    print("IP\t\t\tMac Address\n-----------------------------------------")
     for el in answered_list:
-        print(el[1].psrc)
-        print(el[1].hwsrc)
-        print("----------------------------------")
+        print(el[1].psrc + "\t\t" + el[1].hwsrc)
+        print("-----------------------------------------")
 
 scan("192.168.1.1/24")
